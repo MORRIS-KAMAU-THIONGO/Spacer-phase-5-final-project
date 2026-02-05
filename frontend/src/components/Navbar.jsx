@@ -34,7 +34,7 @@ const Navbar = ({ onLoginClick }) => {
                   onClick={handleLogout}
                   className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700"
                 >
-                  {/* Logout
+                  Logout
                 </button>
               </div>
             ) : (
@@ -83,4 +83,4 @@ const Navbar = ({ onLoginClick }) => {
   );
 };
 
-export default Navbar; */}
+export default Navbar;

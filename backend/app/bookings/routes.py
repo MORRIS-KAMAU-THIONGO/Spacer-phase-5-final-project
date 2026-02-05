@@ -7,3 +7,12 @@ from app.bookings.service import create_booking, list_user_bookings
 from app.core.dependencies import get_current_user
 
 router = APIRouter()
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+

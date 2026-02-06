@@ -40,7 +40,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
+            <h4 className="text-lg font-semibold mb-4"></h4>
             <div className="space-y-3">
               <div className="flex items-center">
                 <FiMail className="mr-3" />

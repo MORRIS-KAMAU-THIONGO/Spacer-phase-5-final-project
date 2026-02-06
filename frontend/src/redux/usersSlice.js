@@ -17,12 +17,12 @@ const initialUsers = [
   },
   {
     id: 2,
-      name: 'Admin User',
+    name: 'Admin User',
     email: 'admin@demo.com',
     password: 'admin123',
     role: 'admin',
-    phone: '+1 555
-          avatar: null,
+    phone: '+1 555-0100',
+    avatar: null,
     createdAt: '2024-01-01T08:00:00Z',
     totalBookings: 0,
     totalSpent: 0,
@@ -135,6 +135,7 @@ const usersSlice = createSlice({
     },
   },
 });
+
 // Export actions
 export const {
   addUser,
@@ -171,7 +172,4 @@ export const selectTotalRevenue = (state) =>
   state.users.users.reduce((sum, u) => sum + (u.totalSpent || 0), 0);
 
 export default usersSlice.reducer;
-
-
-
 

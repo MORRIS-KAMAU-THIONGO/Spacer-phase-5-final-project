@@ -12,3 +12,15 @@ export const store = configureStore({
     spaces: spacesReducer,
     bookings: bookingsReducer,
     users: use
+},
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        // Ignore these action types for serialization check
+        ignoredActions: ['persist/PERSIST', 'persist/REHYDRATE'],
+      },
+    }),
+  devTools: import.meta.env.DEV, // Enable Redux DevTools in development
+});
+
+export default s

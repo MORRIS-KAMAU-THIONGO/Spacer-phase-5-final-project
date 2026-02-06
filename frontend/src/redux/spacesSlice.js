@@ -276,6 +276,22 @@ const spacesSlice = createSlice({
       state.spaces.push(newSpace);
 
 
+  },
+    
+    // Update existing space (Admin)
+    updateSpace: (state, action) => {
+      const index = state.spaces.findIndex(s => s.id === action.payload.id);
+      if (index !== -1) {
+        state.spaces[index] = { ...state.spaces[index], ...action.payload };
+      }
+    },
+    
+    // Delete space (Admin)
+    deleteSpace: (state, action) => {
+      state.spaces = state.spaces.filter(s => s.id !== action.payload);
+    },
+    
+    // Select a space for viewing
 
 
 

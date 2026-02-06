@@ -191,6 +191,24 @@ const initialSpaces = [
     available: true,
     featured: false,
   },
+    {
+    id: 10,
+    name: 'Photography Studio',
+    description: 'Professional photography studio with cyclorama wall, various backdrops, and professional lighting setup.',
+    type: 'studio',
+    category: 'Photography Studio',
+    price: 120,
+    priceUnit: 'hour',
+    capacity: 8,
+    location: '444 Photo Drive, Nairobi - Parklands',
+    image: 'https://images.unsplash.com/photo-1590642916589-592bca102bf9?w=800&q=80',
+    amenities: ['WiFi', 'Lighting Kit', 'Backdrops', 'Cyclorama', 'Makeup Station'],
+    rating: 4.8,
+    reviews: 19,
+    available: true,
+    featured: false,
+  },
+
 
 
 

@@ -3,7 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectUserBookings } from '../redux/bookingsSlice';
 import SpaceCard from '../components/SpaceCard';
 import BookingModal from '../components/BookingModal';
+import Navbar from '../components/Navbar';
 import { FiSearch, FiFilter, FiCalendar, FiMapPin, FiDollarSign, FiClock } from 'react-icons/fi';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ClientDashboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -51,8 +54,9 @@ const ClientDashboard = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="min-h-screen bg-gray-50">
+      <Navbar />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-24">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome back, {user?.name}!</h1>
@@ -286,6 +290,19 @@ const ClientDashboard = () => {
         isOpen={showBookingModal} 
         onClose={() => setShowBookingModal(false)} 
         space={selectedSpace} 
+      />
+      
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
       />
     </div>
   );

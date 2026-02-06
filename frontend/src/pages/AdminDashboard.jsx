@@ -3,8 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addSpace, updateSpace, deleteSpace } from '../redux/spacesSlice';
 import { updateBookingStatus, deleteBooking } from '../redux/bookingsSlice';
 import { addUser, updateUser, deleteUser, updateUserRole } from '../redux/usersSlice';
+import Navbar from '../components/Navbar';
 import { FiPlus, FiEdit, FiTrash, FiUsers, FiMapPin, FiDollarSign, FiCalendar } from 'react-icons/fi';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -222,8 +224,9 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="min-h-screen bg-gray-50">
+      <Navbar />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-24">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Admin Dashboard</h1>
@@ -543,6 +546,19 @@ const AdminDashboard = () => {
       {/* Modals */}
       {showSpaceModal && <SpaceModal />}
       {showUserModal && <UserModal />}
+      
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 };

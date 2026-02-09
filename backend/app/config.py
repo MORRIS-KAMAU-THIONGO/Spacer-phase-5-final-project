@@ -9,7 +9,7 @@ class Settings(BaseSettings):
 
     class Config:
         env_file = ".env"
-        extra = "ignore"  # optional safety
+        extra = "ignore"
 
 
 settings = Settings()

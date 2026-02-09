@@ -3,25 +3,20 @@ import { FiArrowRight } from 'react-icons/fi';
 
 const CTASection = ({ onGetStartedClick }) => {
   return (
-    <section className="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          Ready to Transform Your Work Experience?
+    <section className="bg-gray-50 py-20">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gray-900">
+          Ready to Find Your Perfect Workspace?
         </h2>
-        <p className="text-xl mb-8 max-w-2xl mx-auto">
-          Join thousands of professionals who have found their perfect workspace. 
-          Start your journey today.
+        <p className="text-xl mb-10 text-gray-600 max-w-2xl mx-auto">
+          Join thousands of professionals and businesses who have found their ideal space with Spacer.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
             onClick={onGetStartedClick}
-            
-            className="bg-yellow-400 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 flex items-center justify-center"
+            className="bg-indigo-600 text-white px-10 py-4 rounded-lg font-semibold hover:bg-indigo-700 transition-colors flex items-center justify-center text-lg shadow-lg"
           >
             Get Started Now <FiArrowRight className="ml-2" />
-          </button>
-          <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-900">
-            Contact Sales
           </button>
         </div>
       </div>

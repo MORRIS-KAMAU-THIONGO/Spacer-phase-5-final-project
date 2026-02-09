@@ -1,10 +1,12 @@
 
-const FeatureCard = ({ icon, title, description }) => {
+const FeatureCard = ({ icon, title, desc }) => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-      <div className="text-blue-600 text-4xl mb-4">{icon}</div>
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+    <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow border border-gray-100">
+      <div className="w-16 h-16 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-2xl flex items-center justify-center mb-6">
+        <div className="text-indigo-600 text-3xl">{icon}</div>
+      </div>
+      <h3 className="text-xl font-bold mb-3 text-gray-900">{title}</h3>
+      <p className="text-gray-600 leading-relaxed">{desc}</p>
     </div>
   );
 };

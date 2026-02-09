@@ -38,8 +38,8 @@ const Navbar = ({ onLoginClick, dashboardType = null }) => {
     } else {
       // Homepage navbar
       return [
-        { label: 'Home', href: '#home' },
-        { label: 'Spaces', href: '#spaces' },
+        { label: 'Features', href: '#features' },
+        { label: 'How It Works', href: '#how-it-works' },
         { label: 'About', href: '#about' },
       ];
     }
@@ -100,12 +100,20 @@ const Navbar = ({ onLoginClick, dashboardType = null }) => {
                 </button>
               </div>
             ) : (
-              <button
-                onClick={onLoginClick}
-                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
-              >
-                Login
-              </button>
+              <div className="flex items-center space-x-3">
+                <button
+                  onClick={onLoginClick}
+                  className="text-gray-700 hover:text-blue-600 px-4 py-2 transition-colors"
+                >
+                  Sign Up
+                </button>
+                <button
+                  onClick={onLoginClick}
+                  className="bg-black text-white px-6 py-2 rounded-lg hover:bg-gray-900 transition-colors"
+                >
+                  Login
+                </button>
+              </div>
             )}
           </div>
 
@@ -155,12 +163,20 @@ const Navbar = ({ onLoginClick, dashboardType = null }) => {
                 </button>
               </>
             ) : (
-              <button
-                onClick={onLoginClick}
-                className="block w-full text-left px-3 py-2 text-blue-600"
-              >
-                Login
-              </button>
+              <>
+                <button
+                  onClick={onLoginClick}
+                  className="block w-full text-left px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-md"
+                >
+                  Sign Up
+                </button>
+                <button
+                  onClick={onLoginClick}
+                  className="block w-full text-left px-3 py-2 text-blue-600 font-semibold"
+                >
+                  Login
+                </button>
+              </>
             )}
           </div>
         </div>

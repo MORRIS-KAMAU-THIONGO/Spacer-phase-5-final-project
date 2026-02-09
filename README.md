@@ -152,12 +152,6 @@ cd backend
 alembic upgrade head
 ```
 
-**For Flask with Flask-Migrate:**
-```bash
-cd backend
-flask db upgrade
-```
-
 ### Environment Configuration
 
 #### Backend Configuration

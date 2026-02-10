@@ -2,8 +2,8 @@ from datetime import datetime, timedelta
 
 def test_book_space(client):
     # Register & login user
-    client.post("/auth/register", json={"name":"User","email":"user@example.com","password":"1234"})
-    login = client.post("/auth/login", json={"email":"user@example.com","password":"1234"})
+    client.post("/auth/register", json={"name":"Chebet Achieng","email":"chebet.achieng@gmail.com","password":"1234"})
+    login = client.post("/auth/login", json={"email":"chebet.achieng@gmail.com","password":"1234"})
     token = login.json()["access_token"]
     headers = {"Authorization": f"Bearer {token}"}
 

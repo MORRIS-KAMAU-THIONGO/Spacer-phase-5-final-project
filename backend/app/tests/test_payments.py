@@ -1,7 +1,7 @@
 from fastapi.testclient import TestClient
 
 def test_payment_success(client: TestClient):
-    login = client.post("/auth/login", json={"email": "user@example.com", "password": "1234"})
+    login = client.post("/auth/login", json={"email": "chebet.achieng@gmail.com", "password": "1234"})
     token = login.json()["access_token"]
     headers = {"Authorization": f"Bearer {token}"}
 
@@ -18,7 +18,7 @@ def test_payment_success(client: TestClient):
     assert "invoice_number" in response.json()
 
 def test_payment_booking_not_found(client: TestClient):
-    login = client.post("/auth/login", json={"email": "user@example.com", "password": "1234"})
+    login = client.post("/auth/login", json={"email": "chebet.achieng@gmail.com", "password": "1234"})
     token = login.json()["access_token"]
     headers = {"Authorization": f"Bearer {token}"}
 
@@ -31,7 +31,7 @@ def test_payment_booking_not_found(client: TestClient):
     assert "Booking not found" in response.json()["detail"]
 
 def test_payment_already_paid(client: TestClient):
-    login = client.post("/auth/login", json={"email": "user@example.com", "password": "1234"})
+    login = client.post("/auth/login", json={"email": "chebet.achieng@gmail.com", "password": "1234"})
     token = login.json()["access_token"]
     headers = {"Authorization": f"Bearer {token}"}
 

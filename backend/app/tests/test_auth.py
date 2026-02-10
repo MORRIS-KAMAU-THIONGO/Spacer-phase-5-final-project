@@ -1,8 +1,8 @@
 def test_register_and_login(client):
     # Register
     response = client.post("/auth/register", json={
-        "name": "Test User",
-        "email": "test@example.com",
+        "name": "Wanjiru Kamau",
+        "email": "wanjiru.kamau@gmail.com",
         "password": "password123"
     })
     assert response.status_code == 200
@@ -10,7 +10,7 @@ def test_register_and_login(client):
 
     # Login
     response = client.post("/auth/login", json={
-        "email": "test@example.com",
+        "email": "wanjiru.kamau@gmail.com",
         "password": "password123"
     })
     assert response.status_code == 200

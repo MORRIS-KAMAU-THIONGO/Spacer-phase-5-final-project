@@ -3,7 +3,7 @@ from app.database.models import User
 
 def test_create_and_list_space(client):
     # Setup admin user
-    admin = {"name": "Admin", "email": "admin@example.com", "password": "1234", "role": "ADMIN"}
+    admin = {"name": "Mutua Kariuki", "email": "mutua.kariuki@gmail.com", "password": "1234", "role": "ADMIN"}
     client.post("/auth/register", json=admin)
     login = client.post("/auth/login", json={"email": admin["email"], "password": admin["password"]})
     token = login.json()["access_token"]

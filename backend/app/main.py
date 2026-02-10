@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.auth.routes import router as auth_router
 from app.spaces.routes import router as spaces_router
@@ -8,6 +9,15 @@ from app.users.routes import router as users_router
 
 app = FastAPI(title="Spacer API")
 
+# Configure CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # In production, replace with specific origins
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 @app.get("/")
 def root():
     return {
@@ -15,8 +25,8 @@ def root():
         "docs": "/docs"
     }
 
-app.include_router(auth_router, prefix="/auth", tags=["Auth"])
-app.include_router(spaces_router, prefix="/spaces", tags=["Spaces"])
-app.include_router(bookings_router, prefix="/bookings", tags=["Bookings"])
-app.include_router(payments_router, prefix="/payments", tags=["Payments"])
-app.include_router(users_router, prefix="/users", tags=["Users"])
+app.include_router(auth_router, prefix="/api/auth", tags=["Auth"])
+app.include_router(spaces_router, prefix="/api/spaces", tags=["Spaces"])
+app.include_router(bookings_router, prefix="/api/bookings", tags=["Bookings"])
+app.include_router(payments_router, prefix="/api/payments", tags=["Payments"])
+app.include_router(users_router, prefix="/api/users", tags=["Users"])

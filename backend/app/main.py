@@ -1,8 +1,10 @@
-from fastapi import FastAPI
+from email.mime import text
+from fastapi import Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from requests import Session
 
 from app.auth.routes import router as auth_router
-from app.spaces.routes import router as spaces_router
+from app.spaces.routes import get_db, router as spaces_router
 from app.bookings.routes import router as bookings_router
 from app.payments.routes import router as payments_router
 from app.users.routes import router as users_router
@@ -28,7 +30,10 @@ def root():
         "message": "Spacer Commune API is running",
         "docs": "/docs"
     }
-
+@app.get("/health")
+def health(db: Session = Depends(get_db)):
+    db.execute(text("SELECT 1"))
+    return {"status": "healthy", "db_connected": True}
 app.include_router(auth_router, prefix="/auth", tags=["Auth"])
 app.include_router(spaces_router, prefix="/spaces", tags=["Spaces"])
 app.include_router(bookings_router, prefix="/bookings", tags=["Bookings"])

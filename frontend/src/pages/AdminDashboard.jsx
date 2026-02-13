@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addSpace, updateSpace, deleteSpace } from '../redux/spacesSlice';
+import { createSpace, updateSpaceAPI, deleteSpaceAPI } from '../redux/spacesSlice';
 import { updateBookingStatus, deleteBooking } from '../redux/bookingsSlice';
 import { addUser, updateUser, deleteUser, updateUserRole } from '../redux/usersSlice';
 import Navbar from '../components/Navbar';

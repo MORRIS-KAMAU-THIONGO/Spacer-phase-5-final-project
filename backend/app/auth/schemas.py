@@ -1,4 +1,5 @@
 from pydantic import BaseModel, EmailStr
+from typing import Dict
 
 class RegisterRequest(BaseModel):
     name: str
@@ -13,4 +14,5 @@ class LoginRequest(BaseModel):
 
 class TokenResponse(BaseModel):
     access_token: str
-    token_type: str = "bearer"
+    token_type: str
+    user: Dict

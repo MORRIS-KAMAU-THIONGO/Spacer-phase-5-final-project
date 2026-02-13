@@ -1,3 +1,9 @@
+from fastapi import FastAPI, Depends
+from fastapi.middleware.cors import CORSMiddleware
+from sqlalchemy import text
+
+from app.database.base import Base
+from app.database.session import engine, get_db
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -9,10 +15,14 @@ from app.users.routes import router as users_router
 
 app = FastAPI(title="Spacer API")
 
-# Configure CORS
+Base.metadata.create_all(bind=engine)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, replace with specific origins
+    allow_origins=[
+        "https://spacer-phase-5-final-project-x34l.vercel.app",
+        "http://localhost:3000",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -25,8 +35,13 @@ def root():
         "docs": "/docs"
     }
 
-app.include_router(auth_router, prefix="/api/auth", tags=["Auth"])
-app.include_router(spaces_router, prefix="/api/spaces", tags=["Spaces"])
-app.include_router(bookings_router, prefix="/api/bookings", tags=["Bookings"])
-app.include_router(payments_router, prefix="/api/payments", tags=["Payments"])
-app.include_router(users_router, prefix="/api/users", tags=["Users"])
+@app.get("/health")
+def health(db=Depends(get_db)):
+    db.execute(text("SELECT 1"))
+    return {"status": "healthy", "db_connected": True}
+
+app.include_router(auth_router, prefix="/auth", tags=["Auth"])
+app.include_router(spaces_router, prefix="/spaces", tags=["Spaces"])
+app.include_router(bookings_router, prefix="/bookings", tags=["Bookings"])
+app.include_router(payments_router, prefix="/payments", tags=["Payments"])
+app.include_router(users_router, prefix="/users", tags=["Users"])
